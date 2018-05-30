@@ -1,0 +1,19 @@
+// 七牛云服务
+// protoc -I ./ ./qiniu.proto --go_out=plugins=grpc:./qiniu/
+
+syntax = "proto3";
+
+service Qiniu {
+
+	//获取上传凭证
+	rpc GetToken(upTokenRequest) returns (upTokenReply) {}
+
+}
+
+message upTokenRequest {
+	string userid = 1;
+}
+
+message upTokenReply {
+	string token = 1;
+}
